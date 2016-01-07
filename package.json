@@ -1,0 +1,24 @@
+{
+  "name": "gulp-task-builder",
+  "version": "0.0.1",
+  "description": "gulp plugin which will receive JSON object of tasks and then execute them.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nomi-ramzan/gulp-task-builder.git"
+  },
+  "keywords": [
+    "gulp",
+    "task",
+    "builder"
+  ],
+  "author": "Nauman Ramzan ( nomi@emallates.com )",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nomi-ramzan/gulp-task-builder/issues"
+  },
+  "homepage": "https://github.com/nomi-ramzan/gulp-task-builder#readme"
+}
