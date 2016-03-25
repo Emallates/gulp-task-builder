@@ -1,5 +1,5 @@
 /*
-* Gulp task builder
+* Gulp task builder version 0.0.3
 */
 var gulp = require('gulp'),
 	async = require('async'),
