@@ -61,7 +61,11 @@ builder.prototype.buildTask = function(task){
 		var gulpTask = gulp.src(task.src).on('error', console.log);
 		if(task.filter) gulpTask = gulpTask.pipe(plugins.filter(task.filter))
 		if(task.preLog) gulpTask = gulpTask.pipe(plugins.intercept(function(file){ task.preLog = ( typeof task.preLog === 'string') ? task.preLog : 'contents'; console.log(file[task.preLog].toString()); return file; }));
-		if(task.debug) gulpTask = gulpTask.pipe(plugins.plumber());
+		if(task.debug){
+			switch(task.ext){
+				case '.js': gulpTask = gulpTask.pipe(plugins.plumber())/*.pipe(plugins.plumber().stop())*/; break;
+			}
+		}
 		if(task.concat && _self._isObject(task.concat)){
 			var fileName = (task.concat.name||name);
 			fileName += (task.concat.ext && task.concat.ext.toString().indexOf('.') != -1)? task.concat.ext : task.ext;
@@ -69,9 +73,9 @@ builder.prototype.buildTask = function(task){
 		}
 		if(task.compress && !_self._isObject(task.compress) ){
 			switch(task.ext){
-				case '.js': gulpTask = gulpTask.pipe(plugins.plumber()).pipe(plugins.uglify())/*.pipe(plugins.plumber().stop())*/; break;
-				case '.html': gulpTask = gulpTask.pipe(plugins.minifyHtml({conditionals: true,spare:true})); break;
-				case '.css': gulpTask = gulpTask.pipe(plugins.minifyCss({compatibility: 'ie8'})); break;
+				case '.js': gulpTask = gulpTask.pipe(plugins.uglify())/*.pipe(plugins.plumber().stop())*/; break;
+				case '.html': gulpTask = gulpTask.pipe(plugins.htmlmin({collapseWhitespace: true})/*minifyHtml({conditionals: true,spare:true})*/); break;
+				case '.css': gulpTask = gulpTask.pipe(plugins.cleanCss({compatibility: 'ie8'})); break;
 			}
 		}
 		if(task.replace){
@@ -100,9 +104,9 @@ builder.prototype.buildTask = function(task){
 
 		if(task.compress && _self._isObject(task.compress) && task.compress.post){
 			switch(task.ext){
-				case '.js': gulpTask = gulpTask.pipe(plugins.uglify()); break;
-				case '.html': gulpTask = gulpTask.pipe(plugins.minifyHtml({conditionals: true,spare:true})); break;
-				case '.css': gulpTask = gulpTask.pipe(plugins.minifyCss({compatibility: 'ie8'})); break;
+				case '.js': gulpTask = gulpTask.pipe(plugins.uglify())/*.pipe(plugins.plumber().stop())*/; break;
+				case '.html': gulpTask = gulpTask.pipe(plugins.htmlmin({collapseWhitespace: true})/*minifyHtml({conditionals: true,spare:true})*/); break;
+				case '.css': gulpTask = gulpTask.pipe(plugins.cleanCss({compatibility: 'ie8'})); break;
 			}
 		}
 

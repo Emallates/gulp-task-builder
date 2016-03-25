@@ -1,6 +1,6 @@
 {
   "name": "gulp-task-builder",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "gulp plugin which will receive JSON object of tasks and then execute them.",
   "main": "index.js",
   "scripts": {
@@ -30,17 +30,21 @@
   },
   "dependencies": {
     "async": "^1.5.2",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.4",
     "gulp-concat": "^2.6.0",
+    "gulp-filter": "^4.0.0",
     "gulp-html-replace": "^1.5.5",
+    "gulp-htmlmin": "^1.3.0",
     "gulp-intercept": "^0.1.0",
-    "gulp-minify-css": "^1.2.3",
-    "gulp-minify-html": "^1.0.5",
+    "gulp-load-plugins": "^1.2.0",
     "gulp-plumber": "^1.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
     "gulp-uglify": "^1.5.1",
     "gulp-watch": "^4.3.5",
     "gulp-wrapper": "^1.0.0",
+    "main-bower-files": "^2.11.1",
     "run-sequence": "^1.1.5"
   },
   "readme": "# gulp-task-builder\r\ngulp description builder which can receive JOSN object of tasks and build tasks.\r\n",
