@@ -1,6 +1,6 @@
 {
   "name": "gulp-task-builder",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "gulp plugin which will receive JSON object of tasks and then execute them.",
   "main": "index.js",
   "scripts": {
@@ -15,10 +15,7 @@
     "task",
     "builder"
   ],
-  "author": {
-    "name": "Nauman Ramzan",
-    "url": " nomi@emallates.com "
-  },
+  "author": "Nauman Ramzan ( nomi@emallates.com )",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/nomi-ramzan/gulp-task-builder/issues"
@@ -47,10 +44,6 @@
     "main-bower-files": "^2.11.1",
     "run-sequence": "^1.1.5"
   },
-  "readme": "# gulp-task-builder\r\ngulp description builder which can receive JOSN object of tasks and build tasks.\r\n",
-  "readmeFilename": "README.md",
-  "gitHead": "ec7d10ede05f52b8026c53f29d52adc625a68bec",
-  "_id": "gulp-task-builder@0.0.1",
   "_shasum": "08f4e9f15a96a4fdb67c0e9c3c90f67f008aede0",
   "_from": "gulp-task-builder@latest"
 }
