@@ -1,5 +1,8 @@
 # gulp-task-builder
-[![Build Status](https://travis-ci.org/travis-ci/travis-web.svg?branch=master)](https://travis-ci.org/travis-ci/travis-web)
+[![Version][version-svg]] [package-url]
+
+[version-svg]: https://img.shields.io/npm/v/gulp-task-builder.svg?style=flat-square
+[package-url]: https://npmjs.org/package/gulp-task-builder
 
 
 ##DESCRIPTION
