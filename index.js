@@ -60,24 +60,25 @@ builder.prototype.buildTask = function(task){
 	return function(){
 		var gulpTask = gulp.src(task.src).on('error', console.log);
 		if(task.filter) gulpTask = gulpTask.pipe(plugins.filter(task.filter))
-		if(task.preLog) gulpTask = gulpTask.pipe(plugins.intercept(function(file){ task.preLog = ( typeof task.preLog === 'string') ? task.preLog : 'contents'; console.log(file[task.preLog].toString()); return file; }));
+		if(task.preLog) gulpTask = log(gulpTask, task.preLog)
 		if(task.debug){
 			switch(task.ext){
 				case '.js': gulpTask = gulpTask.pipe(plugins.plumber())/*.pipe(plugins.plumber().stop())*/; break;
 			}
 		}
-		if(task.concat && _self._isObject(task.concat)){
-			var fileName = (task.concat.name||name);
-			fileName += (task.concat.ext && task.concat.ext.toString().indexOf('.') != -1)? task.concat.ext : task.ext;
+		if(task.concat){
+			var fileName;
+			if(_self._isObject(task.concat)){
+				fileName = task.concat.name || '';
+				if(task.concat.ext) fileName += (task.concat.ext.indexOf('.') != -1) ? task.concat.ext : ('.'+task.concat.ext);
+				if(! ~fileName.indexOf('.') && task.ext) fileName+= task.ext;
+			}else if( typeof task.concat === 'string'){
+				fileName = task.concat;
+				if(fileName.indexOf('.') == -1 && task.ext) fileName += task.ext;
+			}
 			gulpTask = gulpTask.pipe(plugins.concat(fileName));
 		}
-		if(task.compress && !_self._isObject(task.compress) ){
-			switch(task.ext){
-				case '.js': gulpTask = gulpTask.pipe(plugins.uglify())/*.pipe(plugins.plumber().stop())*/; break;
-				case '.html': gulpTask = gulpTask.pipe(plugins.htmlmin({collapseWhitespace: true})/*minifyHtml({conditionals: true,spare:true})*/); break;
-				case '.css': gulpTask = gulpTask.pipe(plugins.cleanCss({compatibility: 'ie8'})); break;
-			}
-		}
+		if(task.compress && !_self._isObject(task.compress) ) gulpTask = compress(gulpTask, task.ext);
 		if(task.replace){
 			if(_self.isArray(task.replace)){
 				for(var i in task.replace){
@@ -102,17 +103,28 @@ builder.prototype.buildTask = function(task){
 			gulpTask = gulpTask.pipe( plugins.wrapper(obj) );
 		}
 
-		if(task.compress && _self._isObject(task.compress) && task.compress.post){
-			switch(task.ext){
-				case '.js': gulpTask = gulpTask.pipe(plugins.uglify())/*.pipe(plugins.plumber().stop())*/; break;
-				case '.html': gulpTask = gulpTask.pipe(plugins.htmlmin({collapseWhitespace: true})/*minifyHtml({conditionals: true,spare:true})*/); break;
-				case '.css': gulpTask = gulpTask.pipe(plugins.cleanCss({compatibility: 'ie8'})); break;
-			}
-		}
+		if(task.compress && _self._isObject(task.compress) && task.compress.post) gulpTask = compress(gulpTask, task.ext);
 
-		if(task.postLog) gulpTask = gulpTask.pipe(plugins.intercept(function(file){ task.postLog = ( typeof task.postLog === 'string') ? task.postLog : 'contents'; console.log(file[task.postLog].toString()); return file; }));
+		if(task.postLog) gulpTask = log(gulpTask, task.preLog)
 		if(task.save) gulpTask = gulpTask.pipe( gulp.dest(task.dest) );
 		console.log(task.name, ' job done');
 	}
 };
+
+function log(stream, opt) {
+	return stream.pipe(plugins.intercept(function(file){
+		opt = (typeof opt === 'string' && file[opt] ) ? opt : "contents";
+		console.log(file[opt].toString()); return file;
+	}));
+}
+
+function compress(stream, ext) {
+	switch(ext){
+		case '.js': return stream.pipe(plugins.uglify())/*.pipe(plugins.plumber().stop())*/;
+		case '.html': return stream.pipe(plugins.htmlmin({collapseWhitespace: true})/*minifyHtml({conditionals: true,spare:true})*/);
+		case '.css': return stream.pipe(plugins.cleanCss({compatibility: 'ie8'}));
+	}
+}
+
+
 module.exports = builder;

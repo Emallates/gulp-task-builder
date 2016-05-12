@@ -1,0 +1,10 @@
+div .block {
+	color:red;
+	font-family: arial;
+	border: 1px solid blue;
+}
+
+div .block span {
+	display: block;
+	float: left;
+}

@@ -1,0 +1,1 @@
+var builder=require("../");builder=new builder,builder.buildTasks({app:{src:"**/*.js",ext:".js",compress:!0,save:1,dest:"dest",preLog:"contents"}}),builder.runTasks();
