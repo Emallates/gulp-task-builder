@@ -1,6 +1,6 @@
 {
   "name": "gulp-task-builder",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "gulp plugin which will receive JSON object of tasks and then execute them.",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,8 @@
   "homepage": "https://github.com/nomi-ramzan/gulp-task-builder#readme",
   "devDependencies": {
     "gulp": "^3.9.0",
-    "gulp-load-plugins": "^1.2.0"
+    "gulp-load-plugins": "^1.2.0",
+    "tape": "^4.5.1"
   },
   "dependencies": {
     "async": "^1.5.2",
