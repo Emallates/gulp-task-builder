@@ -1,8 +1,12 @@
 # gulp-task-builder
-[![Version][version-svg]] [package-url]
+[![Version][version-svg]] [package-url] [![License][license-image]][license-url]  [![Downloads][downloads-image]][downloads-url]
 
 [version-svg]: https://img.shields.io/npm/v/gulp-task-builder.svg?style=flat-square
 [package-url]: https://npmjs.org/package/gulp-task-builder
+[license-image]: https://img.shields.io/badge/license-MIT-green.svg?style=flat-square
+[license-url]: LICENSE.txt
+[downloads-image]: https://img.shields.io/npm/dm/gulp-task-builder.svg?style=flat-square
+[downloads-url]: http://npm-stat.com/charts.html?package=gulp-task-builder
 
 
 ##DESCRIPTION
