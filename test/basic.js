@@ -13,8 +13,8 @@ test('Run basic test', function (t) {
 	builder.runTasks()
 	setTimeout(function(){
 		t.ok(fs.existsSync('./test/dest/css/bundle.css'))
-	  t.ok(fs.existsSync('./test/dest/js/bundle.js'))
-	  t.ok(fs.existsSync('./test/dest/html/index.html'))
+		t.ok(fs.existsSync('./test/dest/js/bundle.js'))
+		t.ok(fs.existsSync('./test/dest/html/index.html'))
 	}, 2000);  
 })
 
