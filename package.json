@@ -23,7 +23,8 @@
   "homepage": "https://github.com/nomi-ramzan/gulp-task-builder#readme",
   "devDependencies": {
     "gulp": "^3.9.0",
-    "gulp-load-plugins": "^1.2.0"
+    "gulp-load-plugins": "^1.2.0",
+    "tape": "^4.5.1"
   },
   "dependencies": {
     "async": "^1.5.2",
