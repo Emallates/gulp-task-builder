@@ -1,6 +1,6 @@
 {
   "name": "gulp-task-builder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Gulp task builder using a json object.",
   "main": "index.js",
   "scripts": {
