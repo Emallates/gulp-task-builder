@@ -8,8 +8,8 @@ test('Run basic test', function (t) {
   t.plan(3)
 	builder.loadTasks({
 		jsFiles:{ src:"./test/src/*.js", ext:'.js', compress:true, /*save:true,*/ dest:"./test/dest/js" , concat:"bundle.js" /* || , concat:{name:"bundle", ext:".js"}*/ },
-		cssFiles:{ src:"./test/src/*.css", ext:'.css', compress:true, save:false, dest:"./test/dest/css" , concat:"bundle.css" /* || , concat:{name:"bundle", ext:".js"}*/ },
-		htmlFiles:{ preLog:'path', src:"./test/src/*.html", ext:'.html', compress:true, save:false, dest:"./test/dest/html" /* || , concat:{name:"bundle", ext:".js"}*/ }
+		cssFiles:{ src:"./test/src/*.css", ext:'.css', compress:true, /*save:false,*/ dest:"./test/dest/css" , concat:"bundle.css" /* || , concat:{name:"bundle", ext:".js"}*/ },
+		htmlFiles:{ preLog:'path', src:"./test/src/*.html", ext:'.html', compress:true, /*save:false,*/ dest:"./test/dest/html" /* || , concat:{name:"bundle", ext:".js"}*/ }
 	});
 	builder.runTasks()
 	setTimeout(function(){
