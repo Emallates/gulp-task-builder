@@ -27,7 +27,7 @@ Table of Contents
   
 1. [Features](#features)
   - [Compress](#compress)
-  - [Concatenate](#concatinate)
+  - [Concatenate](#concatenate)
   - [Replace](#replace)
   - [Rename](#rename)
   - [Wrapper](#wrapper)
@@ -129,9 +129,9 @@ Task options
 Each task contains some required options and also some optional.
 
 #### Required
-- **src** (string) Gulp [src][g-src-rf] parameter. Path of your source files. It an be also regEx. [More Details][g-src-rf].
-- **dest** (string) Gulp [dest][g-dest-rf] parameter. Path wher you want to save your files. [More Details][g-dest-rf].
-- **ext** (string) extension of file which defined in `src` option.
+- **src** (string) Gulp [src][g-src-rf] parameter. Path of your source files. It can be also regEx. [More Details][g-src-rf].
+- **dest** (string) Gulp [dest][g-dest-rf] parameter. Path where you want to save your files. [More Details][g-dest-rf].
+- **ext** (string) extension of file which is defined in `src` option.
 
 #### Optional
 - **runBefore** (string|Array(string)) Define task dependencies which will run before this task.
@@ -145,7 +145,7 @@ Each task contains some required options and also some optional.
 - **replace** (object|array(objects)) Object can be one of these two objects `{target:"", src:""}` this will send to [gulp-replace][gulp-replace] and second `{buildName:replacement}` buildName (string|RegExp) replacement (String|Array|Object).
 - **debug** (bool) Enable [gulp-plumber](https://www.npmjs.com/package/gulp-plumber)
 - **compress** (bool|object) this will use [gulp-uglify][gulp-uglify] if `ext` is `.js`, [gulp-htmlmin][gulp-htmlmin] if `ext` is `.html` and [gulp-clean-css][gulp-clean-css] if `css` is `.css`
-- **wrapper** (Object|Array) Each Object have two options header and footer. More [Details](https://www.npmjs.com/package/gulp-wrapper)
+- **wrapper** (Object|Array) Each Object has two options header and footer. More [Details](https://www.npmjs.com/package/gulp-wrapper)
 - **rename** More [Details](https://www.npmjs.com/package/gulp-rename)
 
 
