@@ -1,1 +1,1 @@
-var file1 = true;
+var file2 = true;
