@@ -1,6 +1,6 @@
 {
   "name": "gulp-task-builder",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Gulp task builder using a json object.",
   "main": "index.js",
   "scripts": {
@@ -11,19 +11,19 @@
     "url": "git+https://github.com/Emallates/gulp-task-builder.git"
   },
   "keywords": [
-    "gulp", 
+    "gulp",
     "builder",
     "easy gulp",
-    "gulp-concat", 
-    "gulp-filter", 
-    "gulp-rename", 
-    "gulp-uglify", 
-    "gulp-replace", 
+    "gulp-concat",
+    "gulp-filter",
+    "gulp-rename",
+    "gulp-uglify",
+    "gulp-replace",
     "gulp-wrapper",
-    "gulp-htmlmin", 
-    "gulp-plumber", 
-    "gulp-clean-css", 
-    "gulp-intercept", 
+    "gulp-htmlmin",
+    "gulp-plumber",
+    "gulp-clean-css",
+    "gulp-intercept",
     "gulp task builder",
     "gulp-html-replace"
   ],
@@ -51,7 +51,8 @@
     "gulp-wrapper": "^1.0.0",
     "lodash": "^4.12.0",
     "main-bower-files": "^2.13.0",
-    "run-sequence": "^1.1.5"
+    "run-sequence": "^1.1.5",
+    "schema-inspector": "^1.6.4"
   },
   "devDependencies": {
     "tape": "^4.5.1",
