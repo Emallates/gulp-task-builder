@@ -126,14 +126,16 @@ You can also disable the save option by setting `save:false`
 
 Task options
 -------------
-Each task contains REQUIRED options which can be passed along with OPTIONALS(see below).
+Each task contains REQUIRED options which can be passed along with OPTIONALS(Flow Control, Plugins, Log Options).
 
-#### Required
+### REQUIRED
+#### Required Options
 - **src** (string) Gulp [src][g-src-rf] parameter. Path of your source files. It can be also regEx. [More Details][g-src-rf].
 - **dest** (string) Gulp [dest][g-dest-rf] parameter. Path where you want to save your files. [More Details][g-dest-rf].
 - **ext** (string) extension of file which is defined in `src` option.
 
-#### Optional
+### OPTIONALS
+#### Flow Control
 - **runBefore** (string|Array(string)) Define task dependencies which will run before this task.
 - **save** (bool) Set `true` if you want to save your output. Default `true`.
 - **name** (string) **Recommended**. Define unique name of gulp task.
