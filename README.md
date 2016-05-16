@@ -69,25 +69,25 @@ with **required** options
 
 
 ####Compress
-Compress your files with `compress` option. This function is using [gulp-uglify][gulp-uglify] for javascript, [gulp-htmlmin][gulp-htmlmin] for html and [gulp-clean-css][gulp-clean-css] for css files
+Compress your files with the `compress` option. This function is using [gulp-uglify][gulp-uglify] for javascript, [gulp-htmlmin][gulp-htmlmin] for html and [gulp-clean-css][gulp-clean-css] for css files
     
     {src:"./src/*.js", ext:".js", dest:"dest", compress:true}
     {src:"./src/*.html", ext:".html", dest:"dest", compress:{collapseWhitespace: true}}
     {src:"./src/*.css", ext:".css", dest:"dest", compress:{compatibility: 'ie8'}}
 
-for more `css` option [see][gulp-mincss-opts]
+for more `css` options [Click Here][gulp-mincss-opts]
 
 ####Concatenate
-Concatenate(join) your files with `concat` option. 
+Concatenate (join) your files with the `concat` option. 
     
-    //File name will be task1.js which is task name
+    //File name will be task1.js which is the task name
     task1:{src:"./src/*.js", ext:".js", dest:"dest", concat:true}
 
-    //File name will be jsbundle.js which is task name
+    //File name will be jsbundle.js which is the task name
     task1:{src:"./src/*.js", ext:".js", dest:"dest", concat:true, name:"jsbundle"}
 
 ####Filter
-Filter your source files with `filter` option.
+Filter your source files with the `filter` option.
     
     {src:"./src/*.js", ext:".js", dest:"dest", filter:'!src/vendor'}
     {src:"./src/*.js", ext:".js", dest:"dest", filter:['*', '!src/vendor']}
@@ -105,14 +105,14 @@ Rename your destination file or path. You can provide **String|Function|Object**
 
 
 ####Wrapper
-Wrap your files or target file with given headers and footers **Object|Array**.
+Wrap your files or target files with the given headers and footers **Object|Array**.
     
     {src:"./src/*.js", ext:".js", dest:"dest", wrapper:{header:"this will be header", footer:"this will be footer"}}
     {src:"./src/*.js", ext:".js", dest:"dest", wrapper:[{header:"header1", footer:"footer1"}{header:"headerN", footer:"footerN"}]}
 
 
 ####Log contents
-You can also log paths contents and other stream options. in case of true default value will be `contents`
+You can also log paths contents and other stream options. In case set to true the default value will be `contents`
     
     {src:"./src/*.js", ext:".js", dest:"dest", log:true}
     {src:"./src/*.js", ext:".js", dest:"dest", preLog:true}
@@ -120,7 +120,7 @@ You can also log paths contents and other stream options. in case of true defaul
 
 
 ####Disable save
-You can also disable save option by setting `save:false`
+You can also disable the save option by setting `save:false`
     
     {src:"./src/*.js", ext:".js", dest:"dest", save:false}
 
