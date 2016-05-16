@@ -148,7 +148,7 @@ Each task contains **REQUIRED** options which can be passed along with **OPTIONA
 - **debug** (bool) Enable [gulp-plumber](https://www.npmjs.com/package/gulp-plumber)
 - **compress** (bool|object) this will use [gulp-uglify][gulp-uglify] if `ext` is `.js`, [gulp-htmlmin][gulp-htmlmin] if `ext` is `.html` and [gulp-clean-css][gulp-clean-css] if `css` is `.css`
 - **wrapper** (Object|Array) Each Object has two options header and footer. [More Details](https://www.npmjs.com/package/gulp-wrapper)
-- **rename** (String|Object|Function) You can rename the name or edit path of your destination file. [More Details](https://www.npmjs.com/package/gulp-rename)
+- **rename** (String|Object|Function) You can edit the name or edit the path of your destination file. [More Details](https://www.npmjs.com/package/gulp-rename)
 
 
 
@@ -160,7 +160,7 @@ Each task contains **REQUIRED** options which can be passed along with **OPTIONA
 - **get** (function) Just in case if you want to get stream.**NOTE** it will not effect the stream.
 
 ## License
-MIT
+**MIT**
 
 [g-src-rf]: https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpsrcglobs-options
 [g-dest-rf]: https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpdestpath-options
