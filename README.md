@@ -126,7 +126,7 @@ You can also disable the save option by setting `save:false`
 
 Task options
 -------------
-Each task contains some required options and also some optional.
+Each task contains REQUIRED options which can be passed along with OPTIONALS(see below).
 
 #### Required
 - **src** (string) Gulp [src][g-src-rf] parameter. Path of your source files. It can be also regEx. [More Details][g-src-rf].
