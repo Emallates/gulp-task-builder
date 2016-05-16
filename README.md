@@ -126,7 +126,7 @@ You can also disable the save option by setting `save:false`
 
 Task options
 -------------
-Each task contains REQUIRED options which can be passed along with OPTIONALS(**Flow Control, Plugins, Log Options**).
+Each task contains **REQUIRED** options which can be passed along with **OPTIONALS**(Flow Control, Plugins, Log Options).
 
 ### REQUIRED
 #### Required Options
