@@ -40,7 +40,7 @@ Setup
 
 ### Install
 
-```sh npm install gulp-task-builder --save ```
+```npm install gulp-task-builder --save ```
 
 ### Usage
 
