@@ -13,7 +13,7 @@
 
 
 ##DESCRIPTION
-Node module which can build you task using a JSON object of tasks.
+Node module task builder which can be configured by JSON Object containing the relevant tasks to build.
 
 <!--NO_HTML-->
 
