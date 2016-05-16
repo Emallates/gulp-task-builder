@@ -147,8 +147,8 @@ Each task contains **REQUIRED** options which can be passed along with **OPTIONA
 - **replace** (object|array(objects)) Object can be one of these two objects `{target:"", src:""}` this will send to [gulp-replace][gulp-replace] and second `{buildName:replacement}` buildName (string|RegExp) replacement (String|Array|Object).
 - **debug** (bool) Enable [gulp-plumber](https://www.npmjs.com/package/gulp-plumber)
 - **compress** (bool|object) this will use [gulp-uglify][gulp-uglify] if `ext` is `.js`, [gulp-htmlmin][gulp-htmlmin] if `ext` is `.html` and [gulp-clean-css][gulp-clean-css] if `css` is `.css`
-- **wrapper** (Object|Array) Each Object has two options header and footer. More [Details](https://www.npmjs.com/package/gulp-wrapper)
-- **rename** More [Details](https://www.npmjs.com/package/gulp-rename)
+- **wrapper** (Object|Array) Each Object has two options header and footer. [More Details](https://www.npmjs.com/package/gulp-wrapper)
+- **rename** [More Details](https://www.npmjs.com/package/gulp-rename)
 
 
 
