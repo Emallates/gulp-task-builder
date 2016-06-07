@@ -24,7 +24,7 @@
     "gulp-plumber",
     "gulp-clean-css",
     "gulp-intercept",
-    "gulp task builder",
+    "gulp-task-builder",
     "gulp-html-replace",
     "gulp-imagemin"
   ],
