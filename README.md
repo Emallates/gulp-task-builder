@@ -26,13 +26,15 @@ Table of Contents
   - [Install](#install)
   - [Usage](#usage)
   
-1. [Features](#features)
+. [Features](#features)
   - [Compress](#compress)
   - [Concatenate](#concatenate)
   - [Replace](#replace)
   - [Rename](#rename)
   - [Wrapper](#wrapper)
+  - [Harmony](#harmony)
 
+. [TODO](#todo)
 
 <!--/NO_HTML-->
 
@@ -149,6 +151,7 @@ Each task contains **REQUIRED** options which can be passed along with **OPTIONA
 - **debug** (bool) Enable [gulp-plumber](https://www.npmjs.com/package/gulp-plumber)
 - **compress** (bool|object) this will use [gulp-uglify][gulp-uglify] if `ext` is `.js`, [gulp-htmlmin][gulp-htmlmin] if `ext` is `.html` and [gulp-clean-css][gulp-clean-css] if `css` is `.css`
 - **wrapper** (Object|Array) Each Object has two options header and footer. [More Details](https://www.npmjs.com/package/gulp-wrapper)
+- **harmony** (Boolean) Set it true if you need `ES6` support too. [More Details](https://www.npmjs.com/package/gulp-uglify#using-a-different-uglifyjs) 
 - **rename** (String|Object|Function) You can edit the name or edit the path of your destination file. [More Details](https://www.npmjs.com/package/gulp-rename)
 
 
@@ -159,6 +162,11 @@ Each task contains **REQUIRED** options which can be passed along with **OPTIONA
 - **preLog** (bool) console stream before processing. same as `log` above.
 - **postLog** (bool) console stream just before save(`gulp.dest` function) stream. same as `log` above.
 - **get** (function) Just in case if you want to get stream.**NOTE** it will not effect the stream.
+
+
+
+## Todo
+  - Use pums instead of pipe in tasks [Reason](https://github.com/terinjokes/gulp-uglify/blob/master/docs/why-use-pump/README.md#why-use-pump) and [package](https://www.npmjs.com/package/pump)
 
 ## License
 **MIT**
@@ -172,6 +180,8 @@ Each task contains **REQUIRED** options which can be passed along with **OPTIONA
 [gulp-replace]: https://www.npmjs.com/package/gulp-replace
 
 [gulp-uglify]: https://www.npmjs.com/package/gulp-uglify
+[uglify-js-harmony]: https://www.npmjs.com/package/uglify-js-harmony
+
 [gulp-htmlmin]: https://www.npmjs.com/package/gulp-htmlmin
 [gulp-clean-css]: https://www.npmjs.com/package/gulp-clean-css
 [gulp-mincss-opts]: https://github.com/jakubpawlowicz/clean-css#how-to-use-clean-css-api
