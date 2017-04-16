@@ -59,7 +59,8 @@ Setup
 Examples
 -------------
 
-####Basic Example 
+#### Basic Example 
+
 with **required** options
 
     var builder = require('gulp-task-builder')
@@ -71,7 +72,8 @@ with **required** options
     builder.runTasks();
 
 
-####Compress
+#### Compress
+
 Compress your files with the `compress` option. This function is using [gulp-uglify][gulp-uglify] for javascript, [gulp-htmlmin][gulp-htmlmin] for html and [gulp-clean-css][gulp-clean-css] for css files
     
     {src:"./src/*.js", ext:".js", dest:"dest", compress:true}
@@ -80,7 +82,8 @@ Compress your files with the `compress` option. This function is using [gulp-ugl
 
 for more `css` options [Click Here][gulp-mincss-opts]
 
-####Concatenate
+#### Concatenate
+
 Concatenate (join) your files with the `concat` option. 
     
     //File name will be task1.js which is the task name
@@ -89,7 +92,8 @@ Concatenate (join) your files with the `concat` option.
     //File name will be jsbundle.js which is the task name
     task1:{src:"./src/*.js", ext:".js", dest:"dest", concat:true, name:"jsbundle"}
 
-####Filter
+#### Filter
+
 Filter your source files with the `filter` option.
     
     {src:"./src/*.js", ext:".js", dest:"dest", filter:'!src/vendor'}
@@ -99,7 +103,8 @@ Filter your source files with the `filter` option.
 
 restore and passthrough will come very soon.
 
-####Rename
+#### Rename
+
 Rename your destination file or path. You can provide **String|Function|Object**.
     
     {src:"./src/*.js", ext:".js", dest:"dest", rename:"main/text/ciao/goodbye.md"}
@@ -107,14 +112,16 @@ Rename your destination file or path. You can provide **String|Function|Object**
     {src:"./src/*.js", ext:".js", dest:"dest", rename:{dirname: "main/text/ciao", basename: "aloha", prefix: "bonjour-", suffix: "-hola", extname: ".md"}}
 
 
-####Wrapper
+#### Wrapper
+
 Wrap your files or target files with the given headers and footers **Object|Array**.
     
     {src:"./src/*.js", ext:".js", dest:"dest", wrapper:{header:"this will be header", footer:"this will be footer"}}
     {src:"./src/*.js", ext:".js", dest:"dest", wrapper:[{header:"header1", footer:"footer1"}{header:"headerN", footer:"footerN"}]}
 
 
-####Log contents
+#### Log contents
+
 You can also log paths contents and other stream options. In case set to true the default value will be `contents`
     
     {src:"./src/*.js", ext:".js", dest:"dest", log:true}
@@ -122,7 +129,8 @@ You can also log paths contents and other stream options. In case set to true th
     {src:"./src/*.js", ext:".js", dest:"dest", preLog:'path'}// Console Paths
 
 
-####Disable save
+#### Disable save
+
 You can also disable the save option by setting `save:false`
     
     {src:"./src/*.js", ext:".js", dest:"dest", save:false}
