@@ -74,11 +74,12 @@ with **required** options
 
 #### Compress
 
-Compress your files with the `compress` option. This function is using [gulp-uglify][gulp-uglify] for javascript, [gulp-htmlmin][gulp-htmlmin] for html and [gulp-clean-css][gulp-clean-css] for css files
+Compress your files with the `compress` option. This function is using [gulp-uglify][gulp-uglify] for javascript, [gulp-htmlmin][gulp-htmlmin] for html, [gulp-clean-css][gulp-clean-css] for css files and [gulp-jsonminify][gulp-jsonminify] for json files
     
     {src:"./src/*.js", ext:".js", dest:"dest", compress:true}
     {src:"./src/*.html", ext:".html", dest:"dest", compress:{collapseWhitespace: true}}
     {src:"./src/*.css", ext:".css", dest:"dest", compress:{compatibility: 'ie8'}}
+    {src:"./src/*.json", ext:".json", dest:"dest", compress:true}
 
 for more `css` options [Click Here][gulp-mincss-opts]
 
@@ -91,6 +92,10 @@ Concatenate (join) your files with the `concat` option.
 
     //File name will be jsbundle.js which is the task name
     task1:{src:"./src/*.js", ext:".js", dest:"dest", concat:true, name:"jsbundle"}
+
+    **JSON**
+    //File name will be jsbundle.json which is the task name
+    task1:{src:"./src/*.json", ext:".json", dest:"dest", concat:true, name:"jsonbundle"}
 
 #### Filter
 
@@ -192,4 +197,6 @@ Each task contains **REQUIRED** options which can be passed along with **OPTIONA
 
 [gulp-htmlmin]: https://www.npmjs.com/package/gulp-htmlmin
 [gulp-clean-css]: https://www.npmjs.com/package/gulp-clean-css
+[gulp-jsonminify]: https://www.npmjs.com/package/gulp-jsonminify
+[gulp-merge-json]: https://www.npmjs.com/package/gulp-merge-json
 [gulp-mincss-opts]: https://github.com/jakubpawlowicz/clean-css#how-to-use-clean-css-api

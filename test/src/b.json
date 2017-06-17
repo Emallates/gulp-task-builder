@@ -1,0 +1,13 @@
+{
+    "key1": {
+        "data1": "devValue"
+    },
+    "key2": {
+        "dataB": {
+            "c": "DEV MODE!"
+        }
+    },
+    "key3": {
+        "important": "value"
+    }
+}
