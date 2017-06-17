@@ -1,20 +1,12 @@
 # Gulp Task Builder
+
+Node module task builder which can be configured by a JSON Object containing the relevant tasks to build.
+
 [![Version][version-svg]][package-url] [![Build Status][travis-svg]][travis-url]  [![Docs][docs-svg]][docs-url] [![License][license-image]][license-url]  [![Downloads][downloads-image]][downloads-url]
 
-[version-svg]: https://img.shields.io/npm/v/gulp-task-builder.svg?style=flat-square
-[travis-svg]: https://img.shields.io/travis/Emallates/gulp-task-builder/master.svg?style=flat-square
-[docs-svg]: http://inch-ci.org/github/Emallates/gulp-task-builder.svg?branch=master
-[docs-url]: https://npmjs.org/package/gulp-task-builder/docs
-[package-url]: https://npmjs.org/package/gulp-task-builder
-[travis-url]: https://api.travis-ci.org/Emallates/gulp-task-builder.svg?branch=master
-[license-image]: https://img.shields.io/badge/license-MIT-green.svg?style=flat-square
-[license-url]: LICENSE.txt
-[downloads-image]: https://img.shields.io/npm/dm/gulp-task-builder.svg?style=flat-square
-[downloads-url]: http://npm-stat.com/charts.html?package=gulp-task-builder
+#### DESCRIPTION
 
-
-##DESCRIPTION
-Node module task builder which can be configured by a JSON Object containing the relevant tasks to build.
+Node module task builder which can be configured by a JSON Object containing the relevant tasks to build. Now you dont need to write gulp tasks in javascript just feine object then thats it.
 
 <!--NO_HTML-->
 
@@ -46,14 +38,14 @@ Setup
 ```npm install gulp-task-builder -D ```
 
 ### Usage
-
-    var builder = require('gulp-task-builder')
-    var tasks = {
-      "task1":{src:"path/to/source/files", dest:"path/to/save"}
-    }
-    builder.loadTasks(tasks);
-    builder.runTasks();
-
+```js
+var builder = require('gulp-task-builder')
+var tasks = {
+  "task1":{src:"path/to/source/files", dest:"path/to/save"}
+}
+builder.loadTasks(tasks);
+builder.runTasks();
+```
 **[Task Options](#task-options)**
 
 Examples
@@ -62,84 +54,92 @@ Examples
 #### Basic Example 
 
 with **required** options
-
-    var builder = require('gulp-task-builder')
-    var tasks = {
-      "task1":{src:"./src/*.js", ext:".js", dest:"dest"},
-      "task2":{src:"./packages/*.js", ext:".js", dest:"dest/lib"}
-    }
-    builder.loadTasks(tasks);
-    builder.runTasks();
-
+```js
+var builder = require('gulp-task-builder')
+var tasks = {
+  "task1":{src:"./src/*.js", ext:".js", dest:"dest"},
+  "task2":{src:"./packages/*.js", ext:".js", dest:"dest/lib"}
+}
+builder.loadTasks(tasks);
+builder.runTasks();
+```
 
 #### Compress
 
-Compress your files with the `compress` option. This function is using [gulp-uglify][gulp-uglify] for javascript, [gulp-htmlmin][gulp-htmlmin] for html, [gulp-clean-css][gulp-clean-css] for css files and [gulp-jsonminify][gulp-jsonminify] for json files
-    
-    {src:"./src/*.js", ext:".js", dest:"dest", compress:true}
-    {src:"./src/*.html", ext:".html", dest:"dest", compress:{collapseWhitespace: true}}
-    {src:"./src/*.css", ext:".css", dest:"dest", compress:{compatibility: 'ie8'}}
-    {src:"./src/*.json", ext:".json", dest:"dest", compress:true}
+Compress your files with the `compress` option. This function is using 
 
+- [gulp-uglify][gulp-uglify] for javascript
+- [gulp-htmlmin][gulp-htmlmin] for html
+- [gulp-clean-css][gulp-clean-css] for css
+- [gulp-jsonminify][gulp-jsonminify] for json
+
+```js
+{src:"./src/*.js", ext:".js", dest:"dest", compress:true}
+{src:"./src/*.html", ext:".html", dest:"dest", compress:{collapseWhitespace: true}}
+{src:"./src/*.css", ext:".css", dest:"dest", compress:{compatibility: 'ie8'}}
+{src:"./src/*.json", ext:".json", dest:"dest", compress:true}
+```
+    
 for more `css` options [Click Here][gulp-mincss-opts]
 
 #### Concatenate
 
 Concatenate (join) your files with the `concat` option. 
-    
-    //File name will be task1.js which is the task name
-    task1:{src:"./src/*.js", ext:".js", dest:"dest", concat:true}
+```js
+//File name will be task1.js which is the task name
+task1:{src:"./src/*.js", ext:".js", dest:"dest", concat:true}
 
-    //File name will be jsbundle.js which is the task name
-    task1:{src:"./src/*.js", ext:".js", dest:"dest", concat:true, name:"jsbundle"}
+//File name will be jsbundle.js which is the task name
+task1:{src:"./src/*.js", ext:".js", dest:"dest", concat:true, name:"jsbundle"}
 
-    **JSON**
-    //File name will be jsbundle.json which is the task name
-    task1:{src:"./src/*.json", ext:".json", dest:"dest", concat:true, name:"jsonbundle"}
+//JSON
+//File name will be jsbundle.json which is the task name
+task1:{src:"./src/*.json", ext:".json", dest:"dest", concat:true, name:"jsonbundle"}
+```
 
 #### Filter
 
 Filter your source files with the `filter` option.
-    
-    {src:"./src/*.js", ext:".js", dest:"dest", filter:'!src/vendor'}
-    {src:"./src/*.js", ext:".js", dest:"dest", filter:['*', '!src/vendor']}
-    {src:"./src/*.js", ext:".js", dest:"dest", filter:{match:['*', '!src/vendor'], options:{restore:true, passthrough:true, dot:true}}}
-    {src:"./src/*.js", ext:".js", dest:"dest", filter:function(file){ /*You can access file.cwd, file.base, file.path and file.contents */ }}
-
+```js
+{src:"./src/*.js", ext:".js", dest:"dest", filter:'!src/vendor'}
+{src:"./src/*.js", ext:".js", dest:"dest", filter:['*', '!src/vendor']}
+{src:"./src/*.js", ext:".js", dest:"dest", filter:{match:['*', '!src/vendor'], options:{restore:true, passthrough:true, dot:true}}}
+{src:"./src/*.js", ext:".js", dest:"dest", filter:function(file){ /*You can access file.cwd, file.base, file.path and file.contents */ }}
+```
 restore and passthrough will come very soon.
 
 #### Rename
 
 Rename your destination file or path. You can provide **String|Function|Object**.
-    
-    {src:"./src/*.js", ext:".js", dest:"dest", rename:"main/text/ciao/goodbye.md"}
-    {src:"./src/*.js", ext:".js", dest:"dest", rename:function (path) { path.dirname += "/ciao"; path.basename += "-goodbye"; path.extname = ".md" }}
-    {src:"./src/*.js", ext:".js", dest:"dest", rename:{dirname: "main/text/ciao", basename: "aloha", prefix: "bonjour-", suffix: "-hola", extname: ".md"}}
-
+```js
+{src:"./src/*.js", ext:".js", dest:"dest", rename:"main/text/ciao/goodbye.md"}
+{src:"./src/*.js", ext:".js", dest:"dest", rename:function (path) { path.dirname += "/ciao"; path.basename += "-goodbye"; path.extname = ".md" }}
+{src:"./src/*.js", ext:".js", dest:"dest", rename:{dirname: "main/text/ciao", basename: "aloha", prefix: "bonjour-", suffix: "-hola", extname: ".md"}}
+```
 
 #### Wrapper
 
 Wrap your files or target files with the given headers and footers **Object|Array**.
-    
-    {src:"./src/*.js", ext:".js", dest:"dest", wrapper:{header:"this will be header", footer:"this will be footer"}}
-    {src:"./src/*.js", ext:".js", dest:"dest", wrapper:[{header:"header1", footer:"footer1"}{header:"headerN", footer:"footerN"}]}
-
+```js 
+{src:"./src/*.js", ext:".js", dest:"dest", wrapper:{header:"this will be header", footer:"this will be footer"}}
+{src:"./src/*.js", ext:".js", dest:"dest", wrapper:[{header:"header1", footer:"footer1"}{header:"headerN", footer:"footerN"}]}
+```
 
 #### Log contents
 
 You can also log paths contents and other stream options. In case set to true the default value will be `contents`
-    
-    {src:"./src/*.js", ext:".js", dest:"dest", log:true}
-    {src:"./src/*.js", ext:".js", dest:"dest", preLog:true}
-    {src:"./src/*.js", ext:".js", dest:"dest", preLog:'path'}// Console Paths
-
+```js 
+{src:"./src/*.js", ext:".js", dest:"dest", log:true}
+{src:"./src/*.js", ext:".js", dest:"dest", preLog:true}
+{src:"./src/*.js", ext:".js", dest:"dest", preLog:'path'}// Console Paths
+```
 
 #### Disable save
 
 You can also disable the save option by setting `save:false`
-    
-    {src:"./src/*.js", ext:".js", dest:"dest", save:false}
-
+```js    
+{src:"./src/*.js", ext:".js", dest:"dest", save:false}
+```
 Task options
 -------------
 Each task contains **REQUIRED** options which can be passed along with **OPTIONALS**(Flow Control, Plugins, Log Options).
@@ -158,14 +158,19 @@ Each task contains **REQUIRED** options which can be passed along with **OPTIONA
 - **order** (Array(string)) Define flow of execution. Like ['log','filter','compress','concat','wrapper'].
 
 #### Plugins
-- **filter** (Object|string|array|function) To filter your files. if you are sending Object then that object should have two properties [match][g-filter-opts] and options. See [gulp-filter][g-filter-api] for more details.
-- **concat** (string|object) object contains two properties name and ext. See [gulp-concat](https://www.npmjs.com/package/gulp-concat) for more details
-- **replace** (object|array(objects)) Object can be one of these two objects `{target:"", src:""}` this will send to [gulp-replace][gulp-replace] and second `{buildName:replacement}` buildName (string|RegExp) replacement (String|Array|Object).
-- **debug** (bool) Enable [gulp-plumber](https://www.npmjs.com/package/gulp-plumber)
-- **compress** (bool|object) this will use [gulp-uglify][gulp-uglify] if `ext` is `.js`, [gulp-htmlmin][gulp-htmlmin] if `ext` is `.html` and [gulp-clean-css][gulp-clean-css] if `css` is `.css`
-- **wrapper** (Object|Array) Each Object has two options header and footer. [More Details](https://www.npmjs.com/package/gulp-wrapper)
-- **harmony** (Boolean) Set it true if you need `ES6` support too. [More Details](https://www.npmjs.com/package/gulp-uglify#using-a-different-uglifyjs) 
-- **rename** (String|Object|Function) You can edit the name or edit the path of your destination file. [More Details](https://www.npmjs.com/package/gulp-rename)
+
+This package is using below pluging
+
+| Task | Plugin | Value Type | Description |
+| ---- | ------ | ---------- | ----------- |
+| Filter | [gulp-filter][gulp-filter] | <ul><li>Object</li> <li>String</li> <li>Array</li> <li>Function</li></ul> | To filter your files. if you are sending Object then that object should have two properties [match][g-filter-opts] and options. See [gulp-filter][g-filter-api] for more details. |
+| Concat | <ul><li>[gulp-concat][gulp-concat]</li><li>[gulp-merge-json][gulp-merge-json]</li></ul> | <ul><li>String</li><li>Object</li></ul> | object contains two properties name and ext. |
+| Replace | [gulp-replace][gulp-replace] | <ul><li>Object</li><li>array(objects)</li></ul> | Object can be one of these two objects `{target:"", src:""}` this will send to [gulp-replace][gulp-replace] and second `{buildName:replacement}` buildName (string|RegExp) replacement (String|Array|Object). |
+| Debug | --- | Boolean | true, false | Enable [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) |
+| Wrapper | [gulp-wrapper][gulp-wrapper] | <ul><li>Object</li><li>Array</li></ul> | Each Object has two options header and footer. [More Details][gulp-wrapper] |
+| Harmony/ES2015 | --- | Boolean | Set it true if you need `ES6` support too. [More Details](https://www.npmjs.com/package/gulp-uglify#using-a-different-uglifyjs) | 
+| Rename | <ul><li>String</li><li>Object</li><li>Function</li></ul> | You can edit the name or edit the path of your destination file. [More Details][gulp-rename] |
+| Compress | <ul><li>[gulp-uglify][gulp-uglify]</li><li>[gulp-htmlmin][gulp-htmlmin]</li><li>[gulp-clean-css][gulp-clean-css]</li></ul> | <ul><li>Boolean</li><li>Object</li></ul> | this will use [gulp-uglify][gulp-uglify] if `ext` is `.js`, [gulp-htmlmin][gulp-htmlmin] if `ext` is `.html` and [gulp-clean-css][gulp-clean-css] if `css` is `.css` |
 
 
 
@@ -184,17 +189,34 @@ Each task contains **REQUIRED** options which can be passed along with **OPTIONA
 ## License
 **MIT**
 
+
+[version-svg]: https://img.shields.io/npm/v/gulp-task-builder.svg?style=flat-square
+[travis-svg]: https://img.shields.io/travis/Emallates/gulp-task-builder/master.svg?style=flat-square
+[docs-svg]: http://inch-ci.org/github/Emallates/gulp-task-builder.svg?branch=master
+[docs-url]: https://npmjs.org/package/gulp-task-builder/docs
+[package-url]: https://npmjs.org/package/gulp-task-builder
+[travis-url]: https://api.travis-ci.org/Emallates/gulp-task-builder.svg?branch=master
+[license-image]: https://img.shields.io/badge/license-MIT-green.svg?style=flat-square
+[license-url]: LICENSE.txt
+[downloads-image]: https://img.shields.io/npm/dm/gulp-task-builder.svg?style=flat-square
+[downloads-url]: http://npm-stat.com/charts.html?package=gulp-task-builder
+
+
 [g-src-rf]: https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpsrcglobs-options
 [g-dest-rf]: https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpdestpath-options
 [g-watch-rf]: https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpwatchglob--opts-tasks-or-gulpwatchglob--opts-cb
 
-[g-filter-api]: https://www.npmjs.com/package/gulp-filter#filterpattern-options
 [g-filter-opts]: https://www.npmjs.com/package/gulp-filter#options
+[g-filter-api]: https://www.npmjs.com/package/gulp-filter#filterpattern-options
 [gulp-replace]: https://www.npmjs.com/package/gulp-replace
 
 [gulp-uglify]: https://www.npmjs.com/package/gulp-uglify
 [uglify-js-harmony]: https://www.npmjs.com/package/uglify-js-harmony
 
+[gulp-filter]: https://www.npmjs.com/package/gulp-filter
+[gulp-concat]: https://www.npmjs.com/package/gulp-concat
+[gulp-rename]: https://www.npmjs.com/package/gulp-rename
+[gulp-wrapper]: https://www.npmjs.com/package/gulp-wrapper
 [gulp-htmlmin]: https://www.npmjs.com/package/gulp-htmlmin
 [gulp-clean-css]: https://www.npmjs.com/package/gulp-clean-css
 [gulp-jsonminify]: https://www.npmjs.com/package/gulp-jsonminify
