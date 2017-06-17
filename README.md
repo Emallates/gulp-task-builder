@@ -169,7 +169,7 @@ This package is using below pluging
 | Debug | --- | Boolean | true, false | Enable [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) |
 | Wrapper | [gulp-wrapper][gulp-wrapper] | <ul><li>Object</li><li>Array</li></ul> | Each Object has two options header and footer. [More Details][gulp-wrapper] |
 | Harmony/ES2015 | --- | Boolean | Set it true if you need `ES6` support too. [More Details](https://www.npmjs.com/package/gulp-uglify#using-a-different-uglifyjs) | 
-| Rename | <ul><li>String</li><li>Object</li><li>Function</li></ul> | You can edit the name or edit the path of your destination file. [More Details][gulp-rename] |
+| Rename | [gulp-rename][gulp-rename] | <ul><li>String</li><li>Object</li><li>Function</li></ul> | You can edit the name or edit the path of your destination file. [More Details][gulp-rename] |
 | Compress | <ul><li>[gulp-uglify][gulp-uglify]</li><li>[gulp-htmlmin][gulp-htmlmin]</li><li>[gulp-clean-css][gulp-clean-css]</li></ul> | <ul><li>Boolean</li><li>Object</li></ul> | this will use [gulp-uglify][gulp-uglify] if `ext` is `.js`, [gulp-htmlmin][gulp-htmlmin] if `ext` is `.html` and [gulp-clean-css][gulp-clean-css] if `css` is `.css` |
 
 
