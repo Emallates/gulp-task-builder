@@ -185,6 +185,7 @@ This package is using below pluging
 
 ## Todo
   - Use pums instead of pipe in tasks [Reason](https://github.com/terinjokes/gulp-uglify/blob/master/docs/why-use-pump/README.md#why-use-pump) and [package](https://www.npmjs.com/package/pump)
+  - Use [uglify-es][uglify-es] instead of [uglify-js-harmony][uglify-js-harmony]
 
 ## License
 **MIT**
@@ -211,6 +212,7 @@ This package is using below pluging
 [gulp-replace]: https://www.npmjs.com/package/gulp-replace
 
 [gulp-uglify]: https://www.npmjs.com/package/gulp-uglify
+[uglify-es]: https://www.npmjs.com/package/uglify-es
 [uglify-js-harmony]: https://www.npmjs.com/package/uglify-js-harmony
 
 [gulp-filter]: https://www.npmjs.com/package/gulp-filter

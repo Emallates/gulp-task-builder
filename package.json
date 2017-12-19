@@ -49,18 +49,16 @@
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
-    "gulp-sass": "^2.3.2",
-    "gulp-scss": "^1.4.0",
     "gulp-uglify": "^1.5.3",
+    "gulp-uglifyes": "^0.1.2",
     "gulp-wrapper": "^1.0.0",
     "lodash": "^4.12.0",
     "main-bower-files": "^2.13.0",
     "merge-json": "0.1.0-b.3",
-    "node-sass": "^4.2.0",
     "pump": "^1.0.2",
     "run-sequence": "^1.1.5",
     "schema-inspector": "^1.6.4",
-    "uglify-js-harmony": "^2.6.2"
+    "vinyl-fs": "^3.0.0"
   },
   "devDependencies": {
     "tape": "^4.5.1",
